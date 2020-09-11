@@ -1,3 +1,14 @@
 <h1> Create new cocktail </h1>
 
+<ul>
+<% @doses.each do |dose| %>
+<li><%= dose.description %></li>
+<% end %>
+</ul>
 
+<%= simple_form_for (@cocktail) do |f| %>
+    <%= f.text_field :name %>
+    <%= f.button :submit %>
+<% end %>
+
+<%= link_to 'Back', root_path %>

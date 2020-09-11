@@ -6,8 +6,8 @@ class CocktailsController < ApplicationController
     end
 
     def new
-        @ingredient = Ingredient.new
-        @dose = Dose.new
+        # @ingredient = Ingredient.new
+        @doses = Dose.all
         @cocktail = Cocktail.new
     end
     
@@ -17,8 +17,9 @@ class CocktailsController < ApplicationController
 
 
     def create
-        # @cocktail = Cocktail.new(cocktail_params)
-
+        @cocktail = Cocktail.new(cocktail_params)
+        @cocktail.save
+        redirect_to cocktails_path
     end
 
 
